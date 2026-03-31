@@ -157,7 +157,7 @@ export default function Contact() {
         </h2>
       </div>
 
-      <div ref={gridRef} className="flex justify-center items-center gap-[40px] mb-[80px]" style={{ perspective: "800px" }}>
+      <div ref={gridRef} className="flex flex-wrap justify-center items-center gap-[20px] md:gap-[40px] mb-[80px]" style={{ perspective: "800px" }}>
         {socials.map((s) => (
           <a
             key={s.id}

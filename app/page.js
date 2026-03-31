@@ -7,11 +7,13 @@ import GithubStats from './components/GithubStats';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
+import BGMPlayer from './components/BGMPlayer';
 
 export default function Home() {
   return (
     <>
       <Preloader />
+      <BGMPlayer />
       <Navbar />
       <Hero />
       <Projects />

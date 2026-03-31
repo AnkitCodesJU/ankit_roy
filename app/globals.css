@@ -63,6 +63,12 @@ body {
   cursor: none; /* Hide default cursor for custom cursor effect */
 }
 
+/* Custom Text Selection */
+::selection {
+  background-color: var(--color-blood, #B20000);
+  color: #ffffff;
+}
+
 /* Custom Cursor */
 .cursor {
   width: 8px;

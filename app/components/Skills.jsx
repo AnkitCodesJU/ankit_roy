@@ -38,35 +38,25 @@ const skills = [
   { name: "CLOUDINARY", icon: "cloudinary", bg: "#3448C5" }
 ];
 
+// Helper to chunk skills into 4 distinct rows
+const chunkArray = (arr, numChunks) => {
+  const result = Array.from({ length: numChunks }, () => []);
+  arr.forEach((item, index) => {
+    result[index % numChunks].push(item);
+  });
+  return result;
+};
+
+const skillRows = chunkArray(skills, 4);
+
 export default function Skills() {
   const titleRef = useScrollReveal({ direction: "left", distance: 40 });
-  const badgeRef = useScrollReveal({ selector: ".skill-badge-item", stagger: 40, distance: 30, threshold: 0.1 });
-
-  // 3D tilt effect on mouse move
-  const handleMouseMove = (e) => {
-    const badge = e.currentTarget;
-    const rect = badge.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -15;
-    const rotateY = ((x - centerX) / centerX) * 15;
-
-    badge.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.12) translateY(-8px)`;
-  };
-
-  const handleMouseLeave = (e) => {
-    const badge = e.currentTarget;
-    badge.style.transform = "";
-  };
 
   // Explosive click ripple
   const handleBadgeClick = (e) => {
     if (typeof navigator !== "undefined" && navigator.vibrate) navigator.vibrate(50);
     const el = e.currentTarget;
 
-    // Create ripple element
     const ripple = document.createElement("span");
     const rect = el.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height) * 2;
@@ -93,14 +83,16 @@ export default function Skills() {
       targets: el,
       scale: [
         { value: 0.85, duration: 80, easing: "easeOutQuad" },
-        { value: 1.12, duration: 400, easing: "easeOutElastic(1, .5)" }
+        { value: 1.12, duration: 400, easing: "easeOutElastic(1, .5)" },
+        { value: 1, duration: 200, easing: "easeOutQuad" }
       ],
     });
   };
 
   return (
-    <section id="skills" className="py-[100px] px-[5%] relative max-w-[1400px] mx-auto">
-      <div ref={titleRef}>
+    <section id="skills" className="py-[100px] w-full overflow-hidden flex flex-col items-center">
+      {/* Title Area */}
+      <div className="px-[5%] max-w-[1400px] w-full mx-auto" ref={titleRef}>
         <div className="text-dim text-[13px] mb-[10px] font-mono tracking-[4px] uppercase">
           004 · ARSENAL
         </div>
@@ -109,29 +101,58 @@ export default function Skills() {
         </h2>
       </div>
 
-      <div ref={badgeRef} className="bg-panel border border-smoke p-[50px] flex flex-wrap justify-center items-center gap-[10px] group/container" style={{ perspective: "800px" }}>
-        {skills.map((skill, idx) => (
-          <div
-            key={idx}
-            onClick={handleBadgeClick}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className="skill-badge-item flex items-center py-[10px] px-[22px] font-sans font-extrabold text-[16px] tracking-[0.5px] uppercase cursor-pointer relative overflow-hidden shadow-[0_4px_6px_rgba(0,0,0,0.3)] transition-all duration-200 ease-out hover:!z-20 hover:!shadow-[0_20px_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.1)] group/badge"
-            style={{ backgroundColor: skill.bg, color: skill.color || "#fff", transformStyle: "preserve-3d" }}
-          >
-            {/* Shine sweep on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/badge:translate-x-[200%] transition-transform duration-700 ease-in-out pointer-events-none"></div>
-            <img
-              src={`https://cdn.simpleicons.org/${skill.icon}`}
-              alt={skill.name}
-              className={`h-[22px] mr-[12px] transition-transform duration-300 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] group-hover/badge:scale-125 group-hover/badge:-rotate-12 ${
-                skill.filterNone ? "brightness-100 invert-0" : "brightness-0 invert"
-              }`}
-            />
-            {skill.name}
-          </div>
-        ))}
+      {/* Marquee Area */}
+      <div className="w-full flex flex-col gap-5 md:gap-8 py-10 relative bg-panel border-y border-smoke shadow-[inset_0_0_80px_rgba(0,0,0,0.6)]">
+        {/* Soft edge blur gradient masks */}
+        <div className="absolute inset-0 pointer-events-none z-10 bg-[linear-gradient(to_right,#050505,transparent_15%,transparent_85%,#050505)]"></div>
+
+        {skillRows.map((row, rowIndex) => {
+          const isReverse = rowIndex % 2 !== 0; // Alternate tracking direction
+          const speed = isReverse ? '22s' : '26s'; // Slight speed variations
+          
+          return (
+            <div key={rowIndex} className="flex relative overflow-hidden group/marquee">
+              <div 
+                className="flex whitespace-nowrap gap-5 md:gap-8 px-2 md:px-4 w-max"
+                style={{
+                  animation: `scroll ${speed} linear infinite ${isReverse ? 'reverse' : 'normal'}`
+                }}
+              >
+                {/* 4 loops to guarantee complete seamless coverage on wide screens */}
+                {[...row, ...row, ...row, ...row].map((skill, idx) => (
+                  <div
+                    key={`${rowIndex}-${idx}`}
+                    onClick={handleBadgeClick}
+                    className="skill-badge-item flex-shrink-0 flex items-center py-2 px-5 md:py-[10px] md:px-[22px] font-sans font-extrabold text-[14px] md:text-[16px] tracking-[0.5px] uppercase cursor-pointer relative overflow-hidden shadow-[0_4px_6px_rgba(0,0,0,0.3)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110 hover:!z-30 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] group/badge select-none"
+                    style={{ backgroundColor: skill.bg, color: skill.color || "#fff" }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/badge:translate-x-[200%] transition-transform duration-700 ease-in-out pointer-events-none"></div>
+                    <img
+                      src={`https://cdn.simpleicons.org/${skill.icon}`}
+                      alt={skill.name}
+                      draggable="false"
+                      className={`h-[18px] md:h-[22px] mr-[10px] md:mr-[12px] transition-transform duration-300 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] group-hover/badge:scale-125 group-hover/badge:-rotate-12 ${
+                        skill.filterNone ? "brightness-100 invert-0" : "brightness-0 invert"
+                      }`}
+                    />
+                    {skill.name}
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-25%); }
+        }
+        .group\\/marquee:hover > div {
+          animation-play-state: paused !important;
+        }
+      `}</style>
     </section>
   );
 }
