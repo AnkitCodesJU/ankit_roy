@@ -8,7 +8,13 @@ const skills = [
   { name: "C++", icon: "cplusplus", bg: "#00599C" },
   { name: "HTML5", icon: "html5", bg: "#E34F26" },
   { name: "JAVA", icon: "openjdk", bg: "#E5900F" },
-  { name: "JAVASCRIPT", icon: "javascript/F7DF1E", bg: "#323330", color: "#F7DF1E", filterNone: true },
+  {
+    name: "JAVASCRIPT",
+    icon: "javascript/F7DF1E",
+    bg: "#323330",
+    color: "#F7DF1E",
+    filterNone: true,
+  },
   { name: "PYTHON", icon: "python", bg: "#3776AB" },
   { name: "TYPESCRIPT", icon: "typescript", bg: "#007ACC" },
   { name: "VERCEL", icon: "vercel", bg: "#000000" },
@@ -35,7 +41,7 @@ const skills = [
   { name: "TAILWINDCSS", icon: "tailwindcss", bg: "#38B2AC" },
   { name: "SCIKIT-LEARN", icon: "scikitlearn", bg: "#F7931E" },
   { name: "BASH SCRIPT", icon: "gnubash", bg: "#121011" },
-  { name: "CLOUDINARY", icon: "cloudinary", bg: "#3448C5" }
+  { name: "CLOUDINARY", icon: "cloudinary", bg: "#3448C5" },
 ];
 
 // Helper to chunk skills into 4 distinct rows
@@ -54,7 +60,8 @@ export default function Skills() {
 
   // Explosive click ripple
   const handleBadgeClick = (e) => {
-    if (typeof navigator !== "undefined" && navigator.vibrate) navigator.vibrate(50);
+    if (typeof navigator !== "undefined" && navigator.vibrate)
+      navigator.vibrate(50);
     const el = e.currentTarget;
 
     const ripple = document.createElement("span");
@@ -84,13 +91,16 @@ export default function Skills() {
       scale: [
         { value: 0.85, duration: 80, easing: "easeOutQuad" },
         { value: 1.12, duration: 400, easing: "easeOutElastic(1, .5)" },
-        { value: 1, duration: 200, easing: "easeOutQuad" }
+        { value: 1, duration: 200, easing: "easeOutQuad" },
       ],
     });
   };
 
   return (
-    <section id="skills" className="py-[100px] w-full overflow-hidden flex flex-col items-center">
+    <section
+      id="skills"
+      className="py-[100px] w-full overflow-hidden flex flex-col items-center"
+    >
       {/* Title Area */}
       <div className="px-[5%] max-w-[1400px] w-full mx-auto" ref={titleRef}>
         <div className="text-dim text-[13px] mb-[10px] font-mono tracking-[4px] uppercase">
@@ -108,14 +118,17 @@ export default function Skills() {
 
         {skillRows.map((row, rowIndex) => {
           const isReverse = rowIndex % 2 !== 0; // Alternate tracking direction
-          const speed = isReverse ? '22s' : '26s'; // Slight speed variations
-          
+          const speed = isReverse ? "22s" : "26s"; // Slight speed variations
+
           return (
-            <div key={rowIndex} className="flex relative overflow-hidden group/marquee">
-              <div 
+            <div
+              key={rowIndex}
+              className="flex relative overflow-hidden group/marquee"
+            >
+              <div
                 className="flex whitespace-nowrap gap-5 md:gap-8 px-2 md:px-4 w-max"
                 style={{
-                  animation: `scroll ${speed} linear infinite ${isReverse ? 'reverse' : 'normal'}`
+                  animation: `scroll ${speed} linear infinite ${isReverse ? "reverse" : "normal"}`,
                 }}
               >
                 {/* 4 loops to guarantee complete seamless coverage on wide screens */}
@@ -124,7 +137,10 @@ export default function Skills() {
                     key={`${rowIndex}-${idx}`}
                     onClick={handleBadgeClick}
                     className="skill-badge-item flex-shrink-0 flex items-center py-2 px-5 md:py-[10px] md:px-[22px] font-sans font-extrabold text-[14px] md:text-[16px] tracking-[0.5px] uppercase cursor-pointer relative overflow-hidden shadow-[0_4px_6px_rgba(0,0,0,0.3)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110 hover:!z-30 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] group/badge select-none"
-                    style={{ backgroundColor: skill.bg, color: skill.color || "#fff" }}
+                    style={{
+                      backgroundColor: skill.bg,
+                      color: skill.color || "#fff",
+                    }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/badge:translate-x-[200%] transition-transform duration-700 ease-in-out pointer-events-none"></div>
                     <img
@@ -132,7 +148,9 @@ export default function Skills() {
                       alt={skill.name}
                       draggable="false"
                       className={`h-[18px] md:h-[22px] mr-[10px] md:mr-[12px] transition-transform duration-300 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] group-hover/badge:scale-125 group-hover/badge:-rotate-12 ${
-                        skill.filterNone ? "brightness-100 invert-0" : "brightness-0 invert"
+                        skill.filterNone
+                          ? "brightness-100 invert-0"
+                          : "brightness-0 invert"
                       }`}
                     />
                     {skill.name}
@@ -146,8 +164,12 @@ export default function Skills() {
 
       <style jsx>{`
         @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-25%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-25%);
+          }
         }
         .group\\/marquee:hover > div {
           animation-play-state: paused !important;

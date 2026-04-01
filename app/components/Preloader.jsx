@@ -16,7 +16,7 @@ export default function Preloader() {
         complete: () => {
           setIsLoading(false);
           document.body.style.overflow = ""; // restore scroll
-        }
+        },
       });
 
       // Simple, robust text reveal since SVG text getTotalLength can be flaky
@@ -25,39 +25,44 @@ export default function Preloader() {
         opacity: [0, 1],
         scale: [0.8, 1],
         duration: 1000,
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       })
-      // Add a cool filter blur effect (supported in most modern browsers)
-      .add({
-        targets: ".preloader-text",
-        filter: ["blur(10px)", "blur(0px)"],
-        duration: 800,
-        easing: "easeOutQuad"
-      }, "-=1000")
-      // Quick flash
-      .add({
-        targets: ".preloader-text",
-        color: ["rgba(139,0,0,1)", "rgba(255,26,26,1)", "rgba(139,0,0,1)"],
-        duration: 600,
-        easing: "easeInOutSine"
-      })
-      // Slide up text
-      .add({
-        targets: ".preloader-text",
-        translateY: -50,
-        opacity: [1, 0],
-        duration: 600,
-        easing: "easeInExpo",
-        delay: 400
-      })
-      // Fade out background
-      .add({
-        targets: ".preloader-bg",
-        opacity: [1, 0],
-        duration: 600,
-        easing: "easeInOutQuad"
-      }, "-=300");
-
+        // Add a cool filter blur effect (supported in most modern browsers)
+        .add(
+          {
+            targets: ".preloader-text",
+            filter: ["blur(10px)", "blur(0px)"],
+            duration: 800,
+            easing: "easeOutQuad",
+          },
+          "-=1000",
+        )
+        // Quick flash
+        .add({
+          targets: ".preloader-text",
+          color: ["rgba(139,0,0,1)", "rgba(255,26,26,1)", "rgba(139,0,0,1)"],
+          duration: 600,
+          easing: "easeInOutSine",
+        })
+        // Slide up text
+        .add({
+          targets: ".preloader-text",
+          translateY: -50,
+          opacity: [1, 0],
+          duration: 600,
+          easing: "easeInExpo",
+          delay: 400,
+        })
+        // Fade out background
+        .add(
+          {
+            targets: ".preloader-bg",
+            opacity: [1, 0],
+            duration: 600,
+            easing: "easeInOutQuad",
+          },
+          "-=300",
+        );
     }, 300);
 
     return () => {

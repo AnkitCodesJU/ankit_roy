@@ -34,15 +34,20 @@ export default function useScrollReveal({
     if (selector) {
       el.querySelectorAll(selector).forEach((child) => {
         child.style.opacity = "0";
-        if (direction === "up") child.style.transform = `translateY(${distance}px)`;
-        else if (direction === "left") child.style.transform = `translateX(${distance}px)`;
-        else if (direction === "right") child.style.transform = `translateX(-${distance}px)`;
+        if (direction === "up")
+          child.style.transform = `translateY(${distance}px)`;
+        else if (direction === "left")
+          child.style.transform = `translateX(${distance}px)`;
+        else if (direction === "right")
+          child.style.transform = `translateX(-${distance}px)`;
       });
     } else {
       el.style.opacity = "0";
       if (direction === "up") el.style.transform = `translateY(${distance}px)`;
-      else if (direction === "left") el.style.transform = `translateX(${distance}px)`;
-      else if (direction === "right") el.style.transform = `translateX(-${distance}px)`;
+      else if (direction === "left")
+        el.style.transform = `translateX(${distance}px)`;
+      else if (direction === "right")
+        el.style.transform = `translateX(-${distance}px)`;
     }
 
     const observer = new IntersectionObserver(
@@ -50,9 +55,11 @@ export default function useScrollReveal({
         if (entry.isIntersecting) {
           // Animate in
           const translateProp =
-            direction === "up" ? { translateY: [distance, 0] } :
-            direction === "left" ? { translateX: [distance, 0] } :
-            { translateX: [-distance, 0] };
+            direction === "up"
+              ? { translateY: [distance, 0] }
+              : direction === "left"
+                ? { translateX: [distance, 0] }
+                : { translateX: [-distance, 0] };
 
           anime({
             targets,
@@ -68,20 +75,24 @@ export default function useScrollReveal({
             el.querySelectorAll(selector).forEach((child) => {
               child.style.opacity = "0";
               child.style.transform =
-                direction === "up" ? `translateY(${distance}px)` :
-                direction === "left" ? `translateX(${distance}px)` :
-                `translateX(-${distance}px)`;
+                direction === "up"
+                  ? `translateY(${distance}px)`
+                  : direction === "left"
+                    ? `translateX(${distance}px)`
+                    : `translateX(-${distance}px)`;
             });
           } else {
             el.style.opacity = "0";
             el.style.transform =
-              direction === "up" ? `translateY(${distance}px)` :
-              direction === "left" ? `translateX(${distance}px)` :
-              `translateX(-${distance}px)`;
+              direction === "up"
+                ? `translateY(${distance}px)`
+                : direction === "left"
+                  ? `translateX(${distance}px)`
+                  : `translateX(-${distance}px)`;
           }
         }
       },
-      { threshold }
+      { threshold },
     );
 
     observer.observe(el);

@@ -27,10 +27,11 @@ export default function Navbar() {
           : "py-8 px-[5%] bg-transparent"
       }`}
     >
-      <Link href="#" className="flex items-center gap-3 cursor-none relative z-[60]">
-        <h2 
-          className="text-5xl tracking-widest text-[#8B0000] opacity-80 font-road-rage" 
-        >
+      <Link
+        href="#"
+        className="flex items-center gap-3 cursor-none relative z-[60]"
+      >
+        <h2 className="text-5xl tracking-widest text-[#8B0000] opacity-80 font-road-rage">
           AR
         </h2>
       </Link>
@@ -52,23 +53,32 @@ export default function Navbar() {
       <div className="flex items-center gap-6 relative z-[60]">
         {/* Desktop Online Indicator */}
         <div className="hidden md:flex items-center gap-2 text-white text-sm font-mono tracking-widest uppercase">
-          <div className="w-2 h-2 rounded-full bg-neon animate-pulse shadow-[0_0_10px_var(--color-neon)]"></div> ONLINE
+          <div className="w-2 h-2 rounded-full bg-neon animate-pulse shadow-[0_0_10px_var(--color-neon)]"></div>{" "}
+          ONLINE
         </div>
-        
+
         {/* Mobile Hamburger Button */}
-        <button 
+        <button
           className="md:hidden flex flex-col justify-center items-center w-8 h-8 cursor-pointer z-[60] focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle Menu"
         >
-          <span className={`block w-8 h-[2px] bg-white transition-all duration-300 ease-out origin-center ${menuOpen ? 'rotate-45 translate-y-[2px]' : '-translate-y-[6px]'}`}></span>
-          <span className={`block w-8 h-[2px] bg-white transition-all duration-300 ease-out ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-          <span className={`block w-8 h-[2px] bg-white transition-all duration-300 ease-out origin-center ${menuOpen ? '-rotate-45 -translate-y-[2px]' : 'translate-y-[6px]'}`}></span>
+          <span
+            className={`block w-8 h-[2px] bg-white transition-all duration-300 ease-out origin-center ${menuOpen ? "rotate-45 translate-y-[2px]" : "-translate-y-[6px]"}`}
+          ></span>
+          <span
+            className={`block w-8 h-[2px] bg-white transition-all duration-300 ease-out ${menuOpen ? "opacity-0" : "opacity-100"}`}
+          ></span>
+          <span
+            className={`block w-8 h-[2px] bg-white transition-all duration-300 ease-out origin-center ${menuOpen ? "-rotate-45 -translate-y-[2px]" : "translate-y-[6px]"}`}
+          ></span>
         </button>
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-[#050505]/95 backdrop-blur-2xl z-50 flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}>
+      <div
+        className={`fixed inset-0 bg-[#050505]/95 backdrop-blur-2xl z-50 flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"}`}
+      >
         <div className="flex flex-col gap-8 items-center list-none">
           {["ABOUT", "PROJECTS", "SKILLS", "GITHUB", "CONTACT"].map((item) => (
             <Link
@@ -82,7 +92,8 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="flex items-center gap-2 text-white text-sm font-mono tracking-widest uppercase mt-8 opacity-70">
-            <div className="w-2 h-2 rounded-full bg-neon animate-pulse shadow-[0_0_10px_var(--color-neon)]"></div> ONLINE
+            <div className="w-2 h-2 rounded-full bg-neon animate-pulse shadow-[0_0_10px_var(--color-neon)]"></div>{" "}
+            ONLINE
           </div>
         </div>
       </div>

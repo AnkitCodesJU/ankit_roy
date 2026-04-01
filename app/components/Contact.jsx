@@ -10,49 +10,90 @@ const socials = [
     href: "https://mail.google.com/mail/?view=cm&to=ankitroy72006@gmail.com",
     color: "#EA4335",
     svg: (
-      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        viewBox="0 0 24 24"
+        width="32"
+        height="32"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
         <polyline points="22,6 12,13 2,6"></polyline>
       </svg>
-    )
+    ),
   },
   {
     id: "linkedin",
     href: "https://linkedin.com/in/ankit-roy-ju362",
     color: "#0A66C2",
     svg: (
-      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        viewBox="0 0 24 24"
+        width="32"
+        height="32"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-        <rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+        <rect x="2" y="9" width="4" height="12"></rect>
+        <circle cx="4" cy="4" r="2"></circle>
       </svg>
-    )
+    ),
   },
   {
     id: "github",
     href: "https://github.com/AnkitCodesJU",
     color: "#E8E8E8",
     svg: (
-      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        viewBox="0 0 24 24"
+        width="32"
+        height="32"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
       </svg>
-    )
+    ),
   },
   {
     id: "x",
     href: "https://x.com/ankitroy72006",
     color: "#E8E8E8",
     svg: (
-      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        viewBox="0 0 24 24"
+        width="32"
+        height="32"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
         <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
       </svg>
-    )
-  }
+    ),
+  },
 ];
 
 export default function Contact() {
   const titleRef = useScrollReveal({ distance: 40, delay: 0 });
-  const gridRef = useScrollReveal({ selector: ".contact-icon-item", stagger: 120, distance: 50 });
+  const gridRef = useScrollReveal({
+    selector: ".contact-icon-item",
+    stagger: 120,
+    distance: 50,
+  });
   const ctaRef = useScrollReveal({ distance: 30, delay: 200 });
   const containerRef = useRef(null);
 
@@ -74,13 +115,14 @@ export default function Contact() {
   // Click ripple + bounce
   const handleClick = (e) => {
     const el = e.currentTarget;
-    if (typeof navigator !== "undefined" && navigator.vibrate) navigator.vibrate(30);
+    if (typeof navigator !== "undefined" && navigator.vibrate)
+      navigator.vibrate(30);
 
     anime({
       targets: el,
       scale: [
         { value: 0.8, duration: 100, easing: "easeOutQuad" },
-        { value: 1.15, duration: 500, easing: "easeOutElastic(1, .4)" }
+        { value: 1.15, duration: 500, easing: "easeOutElastic(1, .4)" },
       ],
     });
 
@@ -117,7 +159,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-[100px] px-[5%] relative max-w-[1400px] mx-auto">
+    <section
+      id="contact"
+      className="py-[100px] px-[5%] relative max-w-[1400px] mx-auto"
+    >
       {/* Toast Popup */}
       {showToast && (
         <div
@@ -137,7 +182,16 @@ export default function Contact() {
           className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[999] flex items-center gap-3 py-3 px-6 bg-[#0a0a0a]/90 backdrop-blur-[20px] border border-[#1a1a1a] shadow-[0_10px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(139,0,0,0.2)]"
         >
           <div className="w-6 h-6 rounded-full bg-neon/20 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--color-neon)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              viewBox="0 0 24 24"
+              width="14"
+              height="14"
+              fill="none"
+              stroke="var(--color-neon)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           </div>
@@ -157,7 +211,11 @@ export default function Contact() {
         </h2>
       </div>
 
-      <div ref={gridRef} className="flex flex-wrap justify-center items-center gap-[20px] md:gap-[40px] mb-[80px]" style={{ perspective: "800px" }}>
+      <div
+        ref={gridRef}
+        className="flex flex-wrap justify-center items-center gap-[20px] md:gap-[40px] mb-[80px]"
+        style={{ perspective: "800px" }}
+      >
         {socials.map((s) => (
           <a
             key={s.id}
@@ -175,11 +233,20 @@ export default function Contact() {
             }}
           >
             {/* Animated ring pulse on click */}
-            <span className="ring-pulse absolute inset-0 border-2 rounded-none pointer-events-none opacity-0" style={{ borderColor: s.color }}></span>
+            <span
+              className="ring-pulse absolute inset-0 border-2 rounded-none pointer-events-none opacity-0"
+              style={{ borderColor: s.color }}
+            ></span>
 
             {/* Corner accents */}
-            <div className="absolute w-[8px] h-[8px] border-t-2 border-l-2 top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ borderColor: s.color }}></div>
-            <div className="absolute w-[8px] h-[8px] border-b-2 border-r-2 bottom-0 right-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ borderColor: s.color }}></div>
+            <div
+              className="absolute w-[8px] h-[8px] border-t-2 border-l-2 top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{ borderColor: s.color }}
+            ></div>
+            <div
+              className="absolute w-[8px] h-[8px] border-b-2 border-r-2 bottom-0 right-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{ borderColor: s.color }}
+            ></div>
 
             {/* Icon */}
             <div className="text-[#555] transition-all duration-300 group-hover:text-[color:var(--hover-color)] group-hover:drop-shadow-[0_0_8px_var(--hover-glow)]">
@@ -187,7 +254,13 @@ export default function Contact() {
             </div>
 
             {/* Bottom line sweep */}
-            <div className="absolute bottom-0 left-0 w-0 h-[2px] transition-all duration-400 group-hover:w-full" style={{ backgroundColor: s.color, boxShadow: `0 0 10px ${s.color}66` }}></div>
+            <div
+              className="absolute bottom-0 left-0 w-0 h-[2px] transition-all duration-400 group-hover:w-full"
+              style={{
+                backgroundColor: s.color,
+                boxShadow: `0 0 10px ${s.color}66`,
+              }}
+            ></div>
           </a>
         ))}
       </div>
@@ -195,10 +268,15 @@ export default function Contact() {
       <div ref={ctaRef} className="flex justify-center font-racing-engine">
         <button
           onClick={(e) => {
-            navigator.clipboard.writeText("ankitroy72006@gmail.com").then(() => {
-              triggerToast();
-            });
-            window.open("https://mail.google.com/mail/?view=cm&to=ankitroy72006@gmail.com", "_blank");
+            navigator.clipboard
+              .writeText("ankitroy72006@gmail.com")
+              .then(() => {
+                triggerToast();
+              });
+            window.open(
+              "https://mail.google.com/mail/?view=cm&to=ankitroy72006@gmail.com",
+              "_blank",
+            );
           }}
           className="border border-blood text-blood py-[20px] px-[50px] text-[18px] uppercase tracking-[4px] bg-transparent transition-all duration-300 animate-[pulse-border_3s_ease-in-out_infinite] hover:bg-blood hover:text-white hover:animate-none hover:shadow-[0_0_30px_rgba(255,26,26,0.4)] cursor-pointer font-racing-engine"
         >

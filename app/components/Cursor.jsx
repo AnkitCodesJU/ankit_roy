@@ -7,9 +7,11 @@ export default function Cursor() {
   const followerRef = useRef(null);
 
   useEffect(() => {
-    let posX = 0, posY = 0;
-    let mouseX = 0, mouseY = 0;
-    
+    let posX = 0,
+      posY = 0;
+    let mouseX = 0,
+      mouseY = 0;
+
     const cursor = cursorRef.current;
     const follower = followerRef.current;
 
@@ -18,11 +20,11 @@ export default function Cursor() {
     const handleMouseMove = (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      
+
       // Update small cursor immediately
       cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
     };
-    
+
     // Follower animation loop with lerp
     let animationFrameId;
     const loop = () => {
