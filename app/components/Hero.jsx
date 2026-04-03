@@ -190,7 +190,7 @@ export default function Hero() {
             </svg>
           </button>
           <a
-            href="/assets/RESUME-ANKIT_ROY.pdf"
+            href="/assets/RESUME_ANKIT-ROY.pdf"
             download="ANKIT_ROY_CV.pdf"
             onClick={() => triggerToast("DOWNLOADING CV...")}
             className="border border-[#1a1a1a] p-[12px] rounded-full text-text-muted flex items-center justify-center transition-all duration-300 hover:border-blood hover:text-white hover:bg-blood/10 cursor-none"

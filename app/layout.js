@@ -29,7 +29,7 @@ const sakana = localFont({
 });
 
 export const metadata = {
-  title: "Ankit's Portfolio",
+  title: "Portfolio - Ankit Roy",
   description: "A portfolio showcasing my projects and skills.",
 };
 
