@@ -55,20 +55,20 @@ export default function GithubStats() {
 
       <div ref={statsRef} className="flex flex-col gap-[20px] mb-[40px]">
         <img
-          src="https://github-readme-stats.vercel.app/api?username=AnkitCodesJU&show_icons=true&theme=nord&bg_color=0c0c0c&title_color=8B0000&text_color=666666&icon_color=FF1A1A&hide_border=true"
+          src="https://github-readme-stats-sigma-five.vercel.app/api?username=AnkitCodesJU&show_icons=true&theme=radical&hide_border=false&count_private=true&include_all_commits=true"
           alt="GitHub Stats"
           className="w-full border border-[#141414] rounded-[4px] bg-[#0c0c0c]"
           loading="lazy"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
           <img
-            src="https://github-readme-streak-stats.herokuapp.com/?user=AnkitCodesJU&theme=nord&background=0c0c0c&ring=8B0000&fire=FF1A1A&currStreakNum=E8E8E8&sideNums=666666&currStreakLabel=8B0000&sideLabels=8B0000&dates=666666&hide_border=true"
+            src="https://github-readme-streak-stats.herokuapp.com/?user=AnkitCodesJU&theme=radical&hide_border=false"
             alt="GitHub Streak"
             className="w-full border border-[#141414] rounded-[4px] bg-[#0c0c0c]"
             loading="lazy"
           />
           <img
-            src="https://github-readme-stats.vercel.app/api/top-langs/?username=AnkitCodesJU&layout=compact&theme=nord&bg_color=0c0c0c&title_color=8B0000&text_color=666666&hide_border=true"
+            src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=AnkitCodesJU&layout=compact&theme=radical&hide_border=false"
             alt="Top Languages"
             className="w-full border border-[#141414] rounded-[4px] bg-[#0c0c0c]"
             loading="lazy"
