@@ -9,7 +9,7 @@ const achievements = [
   },
   {
     title: "Pupil — Codeforces",
-    desc: "Max Rating: 1221 — Consistent competitive programmer with strong algorithmic fundamentals",
+    desc: "Max Rating: 1331 — Consistent competitive programmer with strong algorithmic fundamentals",
   },
   {
     title: "2★ — CodeChef",
@@ -22,7 +22,7 @@ const achievements = [
 ];
 
 const stats = [
-  { val: "1221", lbl: "CF RATING" },
+  { val: "1331", lbl: "CF RATING" },
   { val: "1422", lbl: "CC RATING" },
   { val: "1W", lbl: "HACKATHONS" },
   { val: "3+", lbl: "PROJECTS" },
