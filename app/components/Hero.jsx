@@ -190,11 +190,12 @@ export default function Hero() {
             </svg>
           </button>
           <a
-            href="/assets/RESUME_ANKIT-ROY.pdf"
-            download="ANKIT_ROY_CV.pdf"
-            onClick={() => triggerToast("DOWNLOADING CV...")}
+            href="https://drive.google.com/file/d/185SOoj-I-L2gQmjx-nrXteYytWicxPDB/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => triggerToast("OPENING CV...")}
             className="border border-[#1a1a1a] p-[12px] rounded-full text-text-muted flex items-center justify-center transition-all duration-300 hover:border-blood hover:text-white hover:bg-blood/10 cursor-none"
-            title="Download CV"
+            title="View CV"
           >
             <svg
               viewBox="0 0 24 24"
@@ -207,8 +208,9 @@ export default function Hero() {
             >
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
               <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="12" y1="18" x2="12" y2="12"></line>
-              <polyline points="9 15 12 18 15 15"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
           </a>
         </div>

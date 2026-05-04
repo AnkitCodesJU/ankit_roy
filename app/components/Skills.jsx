@@ -128,7 +128,7 @@ export default function Skills() {
               <div
                 className="flex whitespace-nowrap gap-5 md:gap-8 px-2 md:px-4 w-max"
                 style={{
-                  animation: `scroll ${speed} linear infinite ${isReverse ? "reverse" : "normal"}`,
+                  animation: `marqueeScroll ${speed} linear infinite ${isReverse ? "reverse" : "normal"}`,
                 }}
               >
                 {/* 4 loops to guarantee complete seamless coverage on wide screens */}
@@ -161,20 +161,17 @@ export default function Skills() {
           );
         })}
       </div>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-25%); }
           }
-          100% {
-            transform: translateX(-25%);
+          .group\\/marquee:hover > div {
+            animation-play-state: paused !important;
           }
-        }
-        .group\\/marquee:hover > div {
-          animation-play-state: paused !important;
-        }
-      `}</style>
+        `
+      }} />
     </section>
   );
 }

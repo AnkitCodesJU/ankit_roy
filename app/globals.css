@@ -56,6 +56,20 @@
   }
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+.group\/marquee:hover > div {
+  animation-play-state: paused !important;
+}
+
+
 :root {
   --bg-color: #050505;
   --text-main: #ffffff;

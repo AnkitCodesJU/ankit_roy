@@ -29,8 +29,40 @@ const sakana = localFont({
 });
 
 export const metadata = {
-  title: "Portfolio - Ankit Roy",
-  description: "A portfolio showcasing my projects and skills.",
+  metadataBase: new URL("https://ankit-roy.vercel.app/"),
+  title: {
+    default: "Ankit Roy | Software Engineer & Full-Stack Developer",
+    template: "%s | Ankit Roy",
+  },
+  description: "Portfolio of Ankit Roy, an Information Technology Sophomore at Jadavpur University specializing in Full-Stack MERN Development, C++, and scalable systems.",
+  keywords: ["Ankit Roy", "Software Engineer", "Full-Stack Developer", "MERN Stack", "React", "Next.js", "JavaScript", "C++", "Jadavpur University", "Portfolio"],
+  authors: [{ name: "Ankit Roy", url: "https://ankit-roy.vercel.app/" }],
+  creator: "Ankit Roy",
+  openGraph: {
+    title: "Ankit Roy | Software Engineer & Full-Stack Developer",
+    description: "Portfolio of Ankit Roy, an Information Technology Sophomore at Jadavpur University specializing in Full-Stack MERN Development.",
+    url: "https://ankit-roy.vercel.app/",
+    siteName: "Ankit Roy Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ankit Roy | Software Engineer & Full-Stack Developer",
+    description: "Portfolio of Ankit Roy, an Information Technology Sophomore at Jadavpur University specializing in Full-Stack MERN Development.",
+    creator: "@ankitroy72006",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {

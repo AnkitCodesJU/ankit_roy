@@ -16,16 +16,16 @@ const achievements = [
     desc: "Max Rating: 1422 — Active Div 2 & 3 contestant with improving performance trajectory",
   },
   {
-    title: "DSA & Algo Grind",
-    desc: "Ongoing — MERN projects, algorithmic optimization, backend CS fundamentals",
+    title: "Knight — LeetCode",
+    desc: "Max Rating: 1855 — Demonstrated advanced algorithmic and problem-solving skills",
   },
 ];
 
 const stats = [
   { val: "1331", lbl: "CF RATING" },
   { val: "1422", lbl: "CC RATING" },
+  { val: "1855", lbl: "LC RATING" },
   { val: "1W", lbl: "HACKATHONS" },
-  { val: "3+", lbl: "PROJECTS" },
 ];
 
 export default function Achievements() {
