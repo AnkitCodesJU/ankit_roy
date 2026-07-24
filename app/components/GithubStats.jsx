@@ -17,16 +17,16 @@ const repos = [
     link: "https://github.com/AnkitCodesJU/Voxen",
   },
   {
+    name: "CVMorph",
+    desc: "An AI-powered mock interview platform featuring automated technical interviews and performance reporting.",
+    lang: "React / Gen-AI",
+    link: "https://github.com/AnkitCodesJU/CVMorph",
+  },
+  {
     name: "GreenLens",
     desc: "A smart platform rewarding verified eco-friendly actions with on-chain Green Tokens.",
     lang: "Web3 / AI",
     link: "https://github.com/AnkitCodesJU/Greenlens",
-  },
-  {
-    name: "Antakshari",
-    desc: "A full-stack web app to manage and organize songs for an Antakshari game.",
-    lang: "TS / Next.js",
-    link: "https://github.com/AnkitCodesJU/Antakshari2026",
   },
 ];
 
