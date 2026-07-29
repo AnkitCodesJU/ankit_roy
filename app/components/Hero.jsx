@@ -190,7 +190,7 @@ export default function Hero() {
             </svg>
           </button>
           <a
-            href="https://drive.google.com/file/d/185SOoj-I-L2gQmjx-nrXteYytWicxPDB/view?usp=sharing"
+            href="https://drive.google.com/file/d/1fMNb-jRWCvqi0BKm6iPoVTgRLa-JywNa/view"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => triggerToast("OPENING CV...")}
