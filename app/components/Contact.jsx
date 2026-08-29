@@ -207,7 +207,7 @@ export default function Contact() {
           007 · SIGNAL
         </div>
         <h2 className="text-[clamp(42px,7vw,88px)] text-center mb-[80px] leading-none font-road-rage text-blood tracking-[4px]">
-          MAKE CONTACT
+          CONTACT ME!
         </h2>
       </div>
 

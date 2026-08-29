@@ -10,14 +10,20 @@ const achievements = [
   {
     title: "Pupil — Codeforces",
     desc: "Max Rating: 1331 — Consistent competitive programmer with strong algorithmic fundamentals",
+    link: "https://codeforces.com/profile/mr.voltgeist",
+    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/codeforces.svg",
   },
   {
     title: "2★ — CodeChef",
     desc: "Max Rating: 1422 — Active Div 2 & 3 contestant with improving performance trajectory",
+    link: "https://www.codechef.com/users/ankitcodes_362",
+    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/codechef.svg",
   },
   {
     title: "Knight — LeetCode",
     desc: "Max Rating: 1855 — Demonstrated advanced algorithmic and problem-solving skills",
+    link: "https://leetcode.com/u/AnkRoyCode/",
+    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/leetcode.svg",
   },
 ];
 
@@ -58,20 +64,28 @@ export default function Achievements() {
       <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-[50px]">
         {/* Achievement List */}
         <div ref={listRef} className="flex flex-col gap-[30px]">
-          {achievements.map((item, idx) => (
-            <div
-              key={idx}
-              className="achieve-item border-l-2 border-blood pl-[25px] relative transition-all duration-300 group hover:border-neon"
-            >
-              <div className="absolute left-[-6px] top-[8px] w-[10px] h-[10px] bg-neon rounded-full shadow-[0_0_15px_var(--color-neon)] transition-all duration-300 group-hover:bg-white group-hover:shadow-[0_0_44px_var(--color-neon)]"></div>
-              <h3 className="text-[24px] text-white mb-[8px] font-sakana tracking-widest">
-                {item.title}
-              </h3>
-              <p className="text-[#777] text-[14px] leading-[1.5] font-sans">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+          {achievements.map((item, idx) => {
+            const Wrapper = item.link ? "a" : "div";
+            const props = item.link ? { href: item.link, target: "_blank", rel: "noopener noreferrer" } : {};
+            return (
+              <Wrapper
+                key={idx}
+                {...props}
+                className={`achieve-item border-l-2 border-blood pl-[25px] relative transition-all duration-300 group hover:border-neon ${item.link ? "block no-underline" : ""}`}
+              >
+                <div className="absolute left-[-6px] top-[8px] w-[10px] h-[10px] bg-neon rounded-full shadow-[0_0_15px_var(--color-neon)] transition-all duration-300 group-hover:bg-white group-hover:shadow-[0_0_44px_var(--color-neon)]"></div>
+                <h3 className="text-[24px] text-white mb-[8px] font-sakana tracking-widest flex items-center gap-[12px]">
+                  {item.title}
+                  {item.icon && (
+                    <img src={item.icon} alt="Logo" className="w-[20px] h-[20px] opacity-70 group-hover:opacity-100 transition-opacity invert" />
+                  )}
+                </h3>
+                <p className="text-[#777] text-[14px] leading-[1.5] font-sans">
+                  {item.desc}
+                </p>
+              </Wrapper>
+            );
+          })}
         </div>
 
         {/* Stats Box */}
